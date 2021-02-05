@@ -60,7 +60,7 @@ The hiker enters and leaves one valley.
 using System;
 using System.Text.RegularExpressions;
 
-namespace CSharp
+namespace PSRHackerRank
 {
     public class CountOfValleys
     {
