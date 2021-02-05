@@ -95,7 +95,10 @@ namespace PSRHackerRank
         private int jumpingOnClouds(int n, int[] c)
         {
             int result = 0;
-
+            for(int i = 0; i < n-1; i+=2, result++)
+            {
+                if (c[i] == 1) i--;
+            }
             return result;
 
         }
