@@ -17,7 +17,10 @@ namespace PSRHackerRank
             // Console.WriteLine("A repeated for {0} times.", new RepeatedString().repeatedString());
 
             // Min-Max-Sum of array
-            new MinMaxSum().minMaxSum();
+            //new MinMaxSum().minMaxSum();
+
+            // Sales By Match
+            Console.WriteLine("There are {0} pairs of socks.", new SalesByMatch().countPairs());
         }
     }
 }
