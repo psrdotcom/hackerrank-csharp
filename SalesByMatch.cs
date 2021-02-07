@@ -64,21 +64,16 @@ namespace PSRHackerRank
     private int countPairs(int pile, int[] colorRank)
     {
       int result = 0;
-      
+
       // Sort the color ranks
       Array.Sort(colorRank);
-      
-      for (int i = 0; i < colorRank.Length - 1;)
+
+      for (int i = 0; i < colorRank.Length - 1; i++)
       {
         if (colorRank[i] == colorRank[i + 1])
         {
           result++;
           // If same increase the index by 2
-          i += 2;
-        }
-        else
-        {
-          // If not same, just go to next val
           i++;
         }
       }
