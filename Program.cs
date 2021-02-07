@@ -14,7 +14,10 @@ namespace PSRHackerRank
             // Console.WriteLine("Jumping on Clouds: " + new JumpingClouds().jumpingOnClouds());
 
             // Repeated String
-            Console.WriteLine("A repeated for {0} times.", new RepeatedString().repeatedString());
+            // Console.WriteLine("A repeated for {0} times.", new RepeatedString().repeatedString());
+
+            // Min-Max-Sum of array
+            new MinMaxSum().minMaxSum();
         }
     }
 }
