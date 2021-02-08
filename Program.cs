@@ -20,7 +20,10 @@ namespace PSRHackerRank
             //new MinMaxSum().minMaxSum();
 
             // Sales By Match
-            Console.WriteLine("There are {0} pairs of socks.", new SalesByMatch().countPairs());
+            // Console.WriteLine("There are {0} pairs of socks.", new SalesByMatch().countPairs());
+
+            // Birthday Cake Candles
+            Console.WriteLine("There are {0} tallest candles", new BirthdayCakeCandles().birthdayCakeCandles());
         }
     }
 }
