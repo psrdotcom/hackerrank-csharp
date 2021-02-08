@@ -4,7 +4,7 @@
 ## Example
 n = 7
 colorRank = [1,2,1,2,1,3,2]
-There is one pair of color 1 and one of color 2. 
+There is one pair of color 1 and one of color 2.
 There are three odd socks left, one of each color. The number of pairs is 2.
 
 ### Function Description
@@ -38,46 +38,49 @@ STDIN                       Function
 * There are three pairs of socks.
 */
 
-using System.Collections.Generic;
 using System;
 
 namespace PSRHackerRank
 {
-  class SalesByMatch
-  {
-    private int socks;
-    private int[] colors;
-
-    public SalesByMatch()
+    internal class SalesByMatch
     {
-      Console.Write("Enter Socks Count: ");
-      this.socks = Convert.ToInt32(Console.ReadLine().Trim());
-      Console.WriteLine("Enter Socks Color in numbers:");
-      this.colors = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
-    }
+        private int socksCount;
+        private int[] colors;
 
-    public int countPairs()
-    {
-      return countPairs(this.socks, this.colors);
-    }
-
-    private int countPairs(int pile, int[] colorRank)
-    {
-      int result = 0;
-
-      // Sort the color ranks
-      Array.Sort(colorRank);
-
-      for (int i = 0; i < colorRank.Length - 1; i++)
-      {
-        if (colorRank[i] == colorRank[i + 1])
+        public SalesByMatch()
         {
-          result++;
-          // If same increase the index by 2
-          i++;
+            Console.Write("Enter Socks Count: ");
+            socksCount = Convert.ToInt32(Console.ReadLine().Trim());
+            Console.WriteLine("Enter {0} Socks Color in numbers:", socksCount);
+            colors = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
+
+            if (socksCount != colors.Length)
+            {
+                Console.WriteLine("Invalid input. Enter the values separated by space");
+            }
+            else
+            {
+                Console.WriteLine("There are {0} pairs of socks.", countPairs(socksCount, colors));
+            }
         }
-      }
-      return result;
+
+        private int countPairs(int pile, int[] colorRank)
+        {
+            int result = 0;
+
+            // Sort the color ranks
+            Array.Sort(colorRank);
+
+            for (int i = 0; i < pile - 1; i++)
+            {
+                if (colorRank[i] == colorRank[i + 1])
+                {
+                    result++;
+                    // If same increase the index by 2
+                    i++;
+                }
+            }
+            return result;
+        }
     }
-  }
 }

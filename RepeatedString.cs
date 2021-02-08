@@ -1,12 +1,12 @@
 ﻿/*
- * There is a string, s, of lowercase English letters that is repeated infinitely many times. 
+ * There is a string, s, of lowercase English letters that is repeated infinitely many times.
  * Given an integer, n, find and print the number of letter a's in the first n letters of the infinite string.
 
 ## Example
 * s = 'abcac'
 * n = 10
 
-The substring we consider is abcacabcac, the first 10 characters of the infinite string. 
+The substring we consider is abcacabcac, the first 10 characters of the infinite string.
 There are 4 occurrences of a in the substring.
 
 ## Function Description
@@ -58,24 +58,28 @@ namespace PSRHackerRank
 {
     internal class RepeatedString
     {
-        private int length;
-        private string str;
-
         public RepeatedString()
         {
-            // Counting Valleys Starts here
-            Console.Write("Enter No.of steps: ");
-            this.length = Convert.ToInt32(Console.ReadLine().Trim());
+            int l;
+            string str;
+
+            // Enter the string
+            Console.WriteLine("Enter string: ");
+            str = Console.ReadLine();
+
+            // Enter the number of times the string is repeated
+            Console.WriteLine("Enter No.of steps: ");
+            l = Convert.ToInt32(Console.ReadLine().Trim());
             Console.WriteLine();
 
-            Console.Write("Enter string: ");
-            this.str = Console.ReadLine();
-            Console.WriteLine();
-        }
-
-        public long repeatedString()
-        {
-            return repeatedString(this.str, this.length);
+            if (str.Length > 100)
+            {
+                Console.WriteLine("Enter valid string with length below 100 characters");
+            }
+            else
+            {
+                Console.WriteLine("Letter 'a' repeated for {0} times.", repeatedString(str, l));
+            }
         }
 
         // Complete the repeatedString function below.
@@ -88,11 +92,11 @@ namespace PSRHackerRank
         private long repeatedString(string s, long n)
         {
             long result = 0;
-            
+
             // Find a in current string
             char[] arr = s.ToCharArray();
             result = findCharCount(arr);
-            
+
             // Find the number of iterations of the same string in provide length
             long noi = n / s.Length;
             result *= noi;

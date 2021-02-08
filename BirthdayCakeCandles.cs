@@ -23,7 +23,7 @@ The second line contains n space-separated integers, where each integer i descri
 ### Constraints
 * 1 <= n <=10 pow 5
 * 1 <= candles[i] <= 10 pow 7
-* 
+*
 #### Sample Input 0
 4
 3 2 1 3
@@ -46,14 +46,11 @@ Candle heights are [18 90 90 13 90 75 90 8 90 43]. The tallest candles are 90 un
  */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSRHackerRank
 {
-    class BirthdayCakeCandles
+    internal class BirthdayCakeCandles
     {
         private int n;
         private int[] c;
@@ -62,17 +59,19 @@ namespace PSRHackerRank
         {
             // Counting Valleys Starts here
             Console.Write("Enter No.of candles: ");
-            this.n = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+            n = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter candles heights seperated by space: ");
-            this.c = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
-            Console.WriteLine();
-        }
+            Console.WriteLine("Enter {0} candles heights separated by space ", n);
+            c = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
 
-        public int birthdayCakeCandles()
-        {
-            return birthdayCakeCandles(this.c);
+            if (n != c.Length)
+            {
+                Console.WriteLine("Enter valid input values separated by space");
+            }
+            else
+            {
+                Console.WriteLine("There are {0} tallest candles", birthdayCakeCandles(c));
+            }
         }
 
         private int birthdayCakeCandles(int[] candles)
@@ -81,9 +80,9 @@ namespace PSRHackerRank
             // Get max val of array
             int maxVal = candles.Max();
 
-            foreach(int i in candles)
+            foreach (int i in candles)
             {
-                if(i == maxVal)
+                if (i == maxVal)
                 {
                     result++;
                 }

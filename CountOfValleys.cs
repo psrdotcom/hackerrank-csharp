@@ -1,11 +1,11 @@
 ﻿/* @Copyright of the problem HackerRank
  * @Copyright of the solution @author: Suresh Raju Pilli
  * Counting Valleys
- * 
- * An avid hiker keeps meticulous records of their hikes. 
- * During the last hike that took exactly 'steps' steps, for every step it was noted if 
- * it was an uphill, U , or a downhill, D step. Hikes always start and end at sea level, 
- * and each step up or down represents a 1 unit change in altitude. 
+ *
+ * An avid hiker keeps meticulous records of their hikes.
+ * During the last hike that took exactly 'steps' steps, for every step it was noted if
+ * it was an uphill, U , or a downhill, D step. Hikes always start and end at sea level,
+ * and each step up or down represents a 1 unit change in altitude.
  * We define the following terms:
 
 A mountain is a sequence of consecutive steps above sea level, starting with a step up from sea level and ending with a step down to sea level.
@@ -16,7 +16,7 @@ Given the sequence of up and down steps during a hike, find and print the number
 
 steps = 8 path = [DDUUUUDD]
 
-The hiker first enters a valley 2 units deep. Then they climb out and up onto a mountain 2 units high. 
+The hiker first enters a valley 2 units deep. Then they climb out and up onto a mountain 2 units high.
 Finally, the hiker returns to sea level and ends the hike.
 
 ### Function Description
@@ -62,36 +62,28 @@ using System.Text.RegularExpressions;
 
 namespace PSRHackerRank
 {
-    public class CountOfValleys
+    internal class CountOfValleys
     {
-        private int steps;
-        private string path;
-
         public CountOfValleys()
         {
+            int steps;
+            string path;
+
             // Counting Valleys Starts here
-            Console.Write("Enter No.of steps: ");
-            this.steps = Convert.ToInt32(Console.ReadLine().Trim());
-            Console.WriteLine();
+            Console.WriteLine("Enter No.of steps: ");
+            steps = Convert.ToInt32(Console.ReadLine().Trim());
 
-            Console.Write("Enter Steps (U-Up and D-Down): ");
-            this.path = Console.ReadLine();
-            Console.WriteLine();
-        }
+            Console.WriteLine("Enter Steps (U-Up and D-Down): ");
+            path = Console.ReadLine();
 
-        /*
-         * Complete the 'countingValleys' function below.
-         *
-         * The function is expected to return an INTEGER.
-         * The function accepts following parameters:
-         *  1. INTEGER steps
-         *  2. STRING path
-         */
-
-        // Counting Valleys
-        public int countingValleys()
-        {
-            return countingValleys(this.steps, this.path);
+            if (steps != path.Length)
+            {
+                Console.WriteLine("Enter valid input with U or D characters");
+            }
+            else
+            {
+                Console.WriteLine("Valley Count: {0}", countingValleys(steps, path));
+            }
         }
 
         /// <summary>
@@ -107,8 +99,7 @@ namespace PSRHackerRank
                 return 0;
             }
 
-            Console.WriteLine("Steps: " + steps + ", Path: " + path);
-
+            // Checking for U and D chars in input
             if (!Regex.Match(path.ToLower(), "^[ud]*$").Success)
             {
                 return 0;

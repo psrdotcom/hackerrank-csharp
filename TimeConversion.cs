@@ -37,26 +37,27 @@ A single string s that represents a time in 12-hour clock format (i.e.:hh:mm:ssA
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSRHackerRank
 {
-    class TimeConversion
+    internal class TimeConversion
     {
-        private string timein12hours;
+        private bool parseVal;
 
         public TimeConversion()
         {
-            Console.Write("Enter time in 12 hour format: ");
-            this.timein12hours = Console.ReadLine();
-        }
-
-        public string timeConversion()
-        {
-            return timeConversion(this.timein12hours);
+            string timein12hours;
+            Console.WriteLine("Enter time in 12 hour format (hh:mm:ssAM or hh:mm:ssPM): ");
+            timein12hours = Console.ReadLine();
+            string result = timeConversion(timein12hours);
+            if (!parseVal)
+            {
+                Console.WriteLine("Enter valid date in 12 hour format (hh:mm:ssAM or hh:mm:ssPM)");
+            }
+            else
+            {
+                Console.WriteLine("Time in 24 hour format is : {0}", result);
+            }
         }
 
         /// <summary>
@@ -66,7 +67,8 @@ namespace PSRHackerRank
         /// <returns></returns>
         private string timeConversion(string s)
         {
-            DateTime dt = DateTime.Parse(s);
+            DateTime dt;
+            parseVal = DateTime.TryParse(s, out dt);
             return dt.ToString("HH:mm:ss");
         }
     }

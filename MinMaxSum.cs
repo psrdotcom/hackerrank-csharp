@@ -45,26 +45,19 @@ Hints: Beware of integer overflow! Use 64-bit Integer.
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSRHackerRank
 {
-    class MinMaxSum
+    internal class MinMaxSum
     {
-        int[] inputArr;
+        private int[] inputArr;
 
         public MinMaxSum()
         {
             Console.WriteLine("Enter array values with spaces between each number");
-            this.inputArr = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
-        }
+            inputArr = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp));
 
-        public void minMaxSum()
-        {
-            minMaxSum(this.inputArr);
+            minMaxSum(inputArr);
         }
 
         private void minMaxSum(int[] arr)
@@ -73,7 +66,7 @@ namespace PSRHackerRank
             long arrSum = 0L;
             foreach (int i in arr)
             {
-                // Make sure we are not 
+                // Make sure we are not
                 arrSum += (long)i;
             }
             Console.Write("{0} {1}", (arrSum - arr[arr.Length - 1]), (arrSum - arr[0]));

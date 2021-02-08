@@ -1,35 +1,32 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace PSRHackerRank
+﻿namespace PSRHackerRank
 {
-    class Program
+    internal class Program
     {
         private static void Main(string[] args)
         {
             // Counting Valleys
-            // Console.WriteLine("Valley Count: " + new CountOfValleys().countingValleys());
+            // new CountOfValleys();
 
             // Jumping Clouds
-            // Console.WriteLine("Jumping on Clouds: " + new JumpingClouds().jumpingOnClouds());
+            // new JumpingClouds();
 
             // Repeated String
-            // Console.WriteLine("A repeated for {0} times.", new RepeatedString().repeatedString());
+            // new RepeatedString();
 
             // Min-Max-Sum of array
             //new MinMaxSum().minMaxSum();
 
             // Sales By Match
-            // Console.WriteLine("There are {0} pairs of socks.", new SalesByMatch().countPairs());
+            // new SalesByMatch();
 
             // Birthday Cake Candles
-            // Console.WriteLine("There are {0} tallest candles", new BirthdayCakeCandles().birthdayCakeCandles());
+            // new BirthdayCakeCandles();
 
             // Time Conversion
-            // Console.WriteLine("Time in 24 hour format is : {0}", new TimeConversion().timeConversion());
+            // new TimeConversion();
 
             // Apple and Orange
-            new AppleAndOrange();
+            //new AppleAndOrange();
         }
     }
 }

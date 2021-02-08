@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /*
- * There is a new mobile game that starts with consecutively numbered clouds. Some of the clouds are thunderheads and others are cumulus. 
- * The player can jump on any cumulus cloud having a number that is equal to the number of the current cloud plus 1 or 2. 
- * The player must avoid the thunderheads. Determine the minimum number of jumps it will take to jump from the starting postion to the last cloud. 
+ * There is a new mobile game that starts with consecutively numbered clouds. Some of the clouds are thunderheads and others are cumulus.
+ * The player can jump on any cumulus cloud having a number that is equal to the number of the current cloud plus 1 or 2.
+ * The player must avoid the thunderheads. Determine the minimum number of jumps it will take to jump from the starting postion to the last cloud.
  * It is always possible to win the game.
 
 For each game, you will get an array of clouds numbered 0 if they are safe or 1 if they must be avoided.
@@ -15,7 +11,7 @@ For each game, you will get an array of clouds numbered 0 if they are safe or 1 
 ## Example
 c = [0,1,0,0,0,1,0]
 Index the array from 0..6. The number on each cloud is its index in the list so the player must avoid the clouds at indices 1 and 5.
-They could follow these two paths: 0 -> 2 -> 4 -> 6 or 0 -> 2 -> 3 -> 4 -> 6. 
+They could follow these two paths: 0 -> 2 -> 4 -> 6 or 0 -> 2 -> 3 -> 4 -> 6.
 The first path takes 3 jumps while the second takes 4. Return 3.
 
 ### Function Description
@@ -31,7 +27,7 @@ int: the minimum number of jumps required
 
 #### Input Format
 
-The first line contains an integer n, the total number of clouds. 
+The first line contains an integer n, the total number of clouds.
 The second line contains n space-separated binary integers describing clouds c[i] where 0 <= i <n.
 
 #### Constraints
@@ -68,23 +64,26 @@ namespace PSRHackerRank
 {
     public class JumpingClouds
     {
-        private int n;
-        private int[] c;
-        
         public JumpingClouds()
         {
+            int n;
+            int[] c;
+
             // Counting Valleys Starts here
-            Console.Write("Enter No.of clouds: ");
-            this.n = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+            Console.WriteLine("Enter No.of clouds: ");
+            n = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter cloud values: ");
-            this.c = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
-            Console.WriteLine();
-        }
+            Console.WriteLine("Enter {0} cloud values: ", n);
+            c = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp));
 
-        public  int jumpingOnClouds() {
-            return jumpingOnClouds(this.n, this.c);
+            if (n != c.Length)
+            {
+                Console.WriteLine("Enter valid inputs separated by space");
+            }
+            else
+            {
+                Console.WriteLine("The game can be won in {0} jumps", jumpingOnClouds(n, c));
+            }
         }
 
         /// <summary>
@@ -95,12 +94,11 @@ namespace PSRHackerRank
         private int jumpingOnClouds(int n, int[] c)
         {
             int result = 0;
-            for(int i = 0; i < n-1; i+=2, result++)
+            for (int i = 0; i < n - 1; i += 2, result++)
             {
                 if (c[i] == 1) i--;
             }
             return result;
-
         }
     }
 }
