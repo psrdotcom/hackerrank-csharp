@@ -23,7 +23,10 @@ namespace PSRHackerRank
             // Console.WriteLine("There are {0} pairs of socks.", new SalesByMatch().countPairs());
 
             // Birthday Cake Candles
-            Console.WriteLine("There are {0} tallest candles", new BirthdayCakeCandles().birthdayCakeCandles());
+            // Console.WriteLine("There are {0} tallest candles", new BirthdayCakeCandles().birthdayCakeCandles());
+
+            // Time Conversion
+            Console.WriteLine("Time in 24 hour format is : {0}", new TimeConversion().timeConversion());
         }
     }
 }
