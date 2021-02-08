@@ -26,7 +26,10 @@ namespace PSRHackerRank
             // Console.WriteLine("There are {0} tallest candles", new BirthdayCakeCandles().birthdayCakeCandles());
 
             // Time Conversion
-            Console.WriteLine("Time in 24 hour format is : {0}", new TimeConversion().timeConversion());
+            // Console.WriteLine("Time in 24 hour format is : {0}", new TimeConversion().timeConversion());
+
+            // Apple and Orange
+            new AppleAndOrange();
         }
     }
 }
