@@ -27,6 +27,9 @@
 
             // Apple and Orange
             //new AppleAndOrange();
+            
+            // Super Digit
+            // new SuperDigit();
         }
     }
 }
